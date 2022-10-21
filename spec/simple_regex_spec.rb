@@ -50,6 +50,22 @@ describe SimpleRegex do
     end
   end
 
+  context "with a * modifier followed by its character" do
+    let(:regex) { described_class.new("fo*o") }
+
+    it "matches a string with a few os" do
+      expect(regex.match("foooooo")).to eq true
+    end
+
+    it "matches a string with a single o" do
+      expect(regex.match("fo")).to eq true
+    end
+
+    it "does not match a string with no os" do
+      expect(regex.match("f")).to eq true
+    end
+  end
+
   context "with a .* modifier" do
     let(:regex) { described_class.new("he.*")}
 

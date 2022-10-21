@@ -16,7 +16,6 @@ class SimpleRegex
       current_token.next_token = t
       current_token = t
     end
-    pp first_token
   end
 
   def match(test)
